@@ -1,0 +1,51 @@
+const db = require('./db');
+const { sendText } = require('./whatsapp');
+const { routeMessage } = require('./commands');
+
+async function handleWebhookPost(req, res) {
+  // Respond 200 IMMEDIATELY before any processing
+  res.sendStatus(200);
+
+  try {
+    const entry = req.body.entry?.[0];
+    const change = entry?.changes?.[0]?.value;
+    const msg = change?.messages?.[0];
+    if (!msg) return; // status update, not a message — ignore
+
+    const waNumber = '+' + msg.from;
+    const type = msg.type; // 'text' | 'image' | 'audio' | 'document'
+    const textBody = msg.text?.body?.trim() || '';
+    const imageId = msg.image?.id || msg.document?.id;
+
+    // Look up user
+    const user = await db.getUserByWA(waNumber);
+    if (!user || !user.active) {
+      await sendText(waNumber,
+        'You are not registered in WarehouseVoice.\n' +
+        'Contact your manager to get access.\n\n' +
+        'Send HELP for available commands.'
+      );
+      return;
+    }
+
+    // Log incoming
+    await db.logMessage('in', waNumber, type, textBody || '[media]');
+
+    // Route
+    await routeMessage(user, type, textBody, imageId);
+  } catch (err) {
+    console.error('Webhook processing error:', err);
+  }
+}
+
+function handleWebhookVerify(req, res) {
+  if (
+    req.query['hub.mode'] === 'subscribe' &&
+    req.query['hub.verify_token'] === process.env.WHATSAPP_VERIFY_TOKEN
+  ) {
+    return res.send(req.query['hub.challenge']);
+  }
+  res.sendStatus(403);
+}
+
+module.exports = { handleWebhookPost, handleWebhookVerify };

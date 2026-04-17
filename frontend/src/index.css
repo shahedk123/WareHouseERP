@@ -1,0 +1,174 @@
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
+:root {
+  --bg: #EEF1F8;
+  --card: #FFFFFF;
+  --card2: #F4F6FB;
+  --card3: #E8EBF4;
+  --bd: rgba(30,50,120,0.10);
+  --bd2: rgba(30,50,120,0.18);
+  --bl: #2563EB;
+  --bl2: #EFF4FF;
+  --bl3: #DBEAFE;
+  --gr: #16A34A;
+  --gr2: #F0FDF4;
+  --gr3: #DCFCE7;
+  --am: #D97706;
+  --am2: #FFFBEB;
+  --am3: #FEF3C7;
+  --rd: #DC2626;
+  --rd2: #FEF2F2;
+  --rd3: #FEE2E2;
+  --pu: #7C3AED;
+  --pu2: #F5F3FF;
+  --pu3: #EDE9FE;
+  --cy: #0891B2;
+  --cy2: #ECFEFF;
+  --cy3: #CFFAFE;
+  --t1: #0F172A;
+  --t2: #475569;
+  --t3: #94A3B8;
+  --t4: #CBD5E1;
+  --t5: #E2E8F0;
+  --sh: 0 1px 3px rgba(0,0,0,0.07), 0 1px 2px rgba(0,0,0,0.04);
+  --sh2: 0 4px 16px rgba(0,0,0,0.10);
+}
+
+* {
+  box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent;
+}
+
+body {
+  margin: 0;
+  font-family: 'Inter', system-ui, sans-serif;
+  background: var(--bg);
+  color: var(--t1);
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+.font-mono {
+  font-family: 'JetBrains Mono', monospace;
+}
+
+.lang-ml {
+  font-family: 'Noto Sans Malayalam', sans-serif;
+}
+
+.lang-ar {
+  font-family: 'Noto Sans Arabic', sans-serif;
+}
+
+@keyframes pulse-dot {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.72; }
+}
+
+@keyframes blink-dot {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+@keyframes live-pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.25; }
+}
+
+@keyframes fade-in-up {
+  from { opacity: 0; transform: translateY(-5px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fade-out-right {
+  from { opacity: 1; transform: translateX(0); }
+  to { opacity: 0; transform: translateX(16px); }
+}
+
+.animate-pulse-dot {
+  animation: pulse-dot 1.2s ease-in-out infinite;
+}
+
+.animate-blink-dot {
+  animation: blink-dot 0.7s ease-in-out infinite;
+}
+
+.animate-live {
+  animation: live-pulse 2s ease-in-out infinite;
+}
+
+.animate-fade-in-up {
+  animation: fade-in-up 220ms ease forwards;
+}
+
+.animate-fade-out-right {
+  animation: fade-out-right 200ms ease forwards;
+}
+
+input:focus {
+  outline: none;
+}
+
+button {
+  cursor: pointer;
+  border: none;
+  font-family: inherit;
+  /* Faster tap response on mobile */
+  touch-action: manipulation;
+}
+
+select {
+  font-family: inherit;
+  touch-action: manipulation;
+}
+
+/* Safe area insets for notched phones (iPhone X+, Android notch) */
+:root {
+  --safe-top: env(safe-area-inset-top, 0px);
+  --safe-bottom: env(safe-area-inset-bottom, 0px);
+  --safe-left: env(safe-area-inset-left, 0px);
+  --safe-right: env(safe-area-inset-right, 0px);
+}
+
+/* Ensure body fills full screen without white bar at bottom */
+html, body {
+  height: 100%;
+  overscroll-behavior: none;
+}
+
+#root {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Minimum touch target size 44px — applied where needed */
+.touch-target {
+  min-height: 44px;
+  min-width: 44px;
+}
+
+/* Prevent text selection on UI elements */
+nav, button {
+  -webkit-user-select: none;
+  user-select: none;
+}
+
+/* Smooth scrolling in scrollable panels */
+.scroll-smooth {
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+}
+
+/* Responsive font scale — used for manager big stats */
+@media (max-width: 400px) {
+  .stat-number { font-size: 24px !important; }
+  .stat-icon   { font-size: 20px !important; }
+}
+
+/* On very small screens, shrink padding */
+@media (max-width: 360px) {
+  .page-pad { padding: 10px 8px !important; }
+}

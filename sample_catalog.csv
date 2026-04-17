@@ -1,0 +1,51 @@
+Name_EN,Name_ML,Code,Unit,Category,Alt_Names
+OPC Cement 50kg,സിമന്റ് 50kg,CEM-001,bag,Building,cement bag;opc;ordinary portland cement;سيمنت;सीमेंट
+PPC Cement 50kg,PPC സിമന്റ്,CEM-002,bag,Building,ppc cement;blended cement;پی پی سی سیمنٹ
+Wall Tile 30x60cm,ടൈൽ 30x60,TIL-023,box,Tiles,wall tile;ceramic tile;بلاط جدار;tiles box;kanam
+Floor Tile 60x60cm,ഫ്ലോർ ടൈൽ,TIL-060,box,Tiles,floor tile;vitrified;بلاط أرضية;granite tile
+Bathroom Tile 30x45cm,ബാത്റൂം ടൈൽ,TIL-034,box,Tiles,bathroom tile;restroom tile;بلاط حمام
+PVC Pipe 4 inch,PVC പൈപ്പ് 4inch,PVC-104,pcs,Plumbing,pvc pipe;four inch pipe;أنبوب pvc;plastic pipe
+PVC Pipe 2 inch,PVC പൈപ്പ് 2inch,PVC-102,pcs,Plumbing,two inch pipe;small pvc;أنبوب صغير
+PVC Elbow 4 inch,PVC എൽബോ,PVC-EL4,pcs,Plumbing,elbow;pipe elbow;bend;كوع pvc
+PVC T-Joint 4 inch,PVC ടി ജോയിന്റ്,PVC-TJ4,pcs,Plumbing,t-joint;tee joint;وصلة تي
+GI Pipe 1 inch,GI പൈപ്പ്,GIP-001,mtr,Plumbing,gi pipe;galvanized iron pipe;أنبوب حديد
+Steel Rod 12mm,ഇരുമ്പ് ദണ്ഡ് 12mm,STL-012,kg,Steel,steel rod;iron rod;12mm bar;قضيب فولاذ;rebar
+Steel Rod 10mm,ഇരുമ്പ് ദണ്ഡ് 10mm,STL-010,kg,Steel,10mm rod;iron bar 10;قضيب 10
+Steel Rod 8mm,ഇരുമ്പ് ദണ്ഡ് 8mm,STL-008,kg,Steel,8mm rod;stirrup rod;قضيب 8
+MS Angle 50x50,MS ആംഗിൾ 50x50,ANG-050,kg,Steel,ms angle;angle iron;زاوية معدنية;L angle
+MS Flat Bar 50x6,MS ഫ്ലാറ്റ്,FLT-506,kg,Steel,flat bar;ms flat;شريط معدني
+River Sand,നദി മണൽ,SND-001,load,Aggregate,sand;river sand;building sand;رمل نهر;manal
+M-Sand,M-സാൻഡ്,SND-002,load,Aggregate,manufactured sand;m sand;msand;رمل مصنوع;crushed sand
+Coarse Aggregate 20mm,ക്വാറി മെറ്റൽ,AGG-020,load,Aggregate,aggregate;metal;jalli;کرشمالا;quarry metal
+Granite Chips 6mm,ഗ്രാനൈറ്റ് ചിപ്സ്,AGG-006,load,Aggregate,pea gravel;chips;small aggregate;حصى صغير
+Wire Mesh 6x2m,വൈർ മെഷ്,MSH-002,roll,Steel,wire mesh;mesh;welded mesh;شبكة سلكية;jali
+Binding Wire 8kg,ബൈൻഡിംഗ് വൈർ,BWR-008,kg,Steel,binding wire;tie wire;سلك ربط;iron wire
+Wall Putty 20kg,വോൾ പട്ടി,PTY-020,bag,Finishing,wall putty;birla putty;putty;معجون جدار
+JK Putty 40kg,JK പട്ടി,PTY-040,bag,Finishing,jk putty;white cement putty;معجون أبيض
+Paint Primer 4L,പ്രൈമർ,PNT-P04,tin,Paints,primer;wall primer;بايمر;طلاء أساسي
+Exterior Paint 10L,ബാഹ്യ പെയിന്റ്,PNT-EX10,tin,Paints,exterior paint;outside paint;طلاء خارجي;weather coat
+Interior Emulsion 10L,ഇന്റീരിയർ പെയിന്റ്,PNT-IN10,tin,Paints,emulsion;interior paint;طلاء داخلي;acrylic paint
+Hollow Block 8 inch,ഹോളോ ബ്ലോക്ക് 8inch,BLK-008,pcs,Building,hollow block;concrete block;بلوك أجوف;block
+Hollow Block 6 inch,ഹോളോ ബ്ലോക്ക് 6inch,BLK-006,pcs,Building,6 inch block;small block;بلوك صغير
+Solid Block 4 inch,സോളിഡ് ബ്ലോക്ക്,BLK-S04,pcs,Building,solid block;4 inch block;بلوك صلب
+AAC Block 600x200,AAC ബ്ലോക്ക്,BLK-AAC,pcs,Building,aac block;autoclaved block;light block;بلوك خفيف
+Plywood 18mm 8x4,പ്ലൈവുഡ്,PLY-180,sheet,Timber,plywood;ply;bwp plywood;خشب رقائقي;birch ply
+Plywood 12mm 8x4,പ്ലൈവുഡ് 12mm,PLY-120,sheet,Timber,12mm ply;thin ply;خشب رقائقي رفيع
+Shuttering Ply 12mm,ഷട്ടറിംഗ് പ്ലൈ,PLY-SH12,sheet,Timber,shuttering ply;formwork ply;خشب قالب
+River Granite 2ft,ഗ്രാനൈറ്റ് 2ft,GRN-2FT,sqft,Finishing,granite slab;stone;granite;رخام;stone slab
+Marble 18x18,മാർബിൾ,MBL-018,sqft,Finishing,marble;white marble;رخام أبيض
+Adhesive Tile Fix 20kg,ടൈൽ ഫിക്സ്,ADH-TF20,bag,Tiles,tile fix;tile adhesive;tile bond;لاصق بلاط
+Tile Grout White 2kg,ഗ്രൗട്ട്,GRT-W02,kg,Tiles,grout;tile grout;tile joint;مونة بلاط
+POP Plaster 25kg,POP,POP-025,bag,Finishing,pop;plaster of paris;gypsum plaster;جبس;plaster
+Cement Plaster 25kg,സിമന്റ് പ്ലാസ്റ്റർ,CPL-025,bag,Finishing,plaster;cement plaster;render;مونة اسمنت
+Waterproofing Chemical 1L,വാട്ടർ പ്രൂഫ്,WPF-001,ltr,Building,waterproofing;dr fixit;water proof;مانع تسرب
+Chicken Mesh Roll,ചിക്കൻ മെഷ്,CMH-001,roll,Steel,chicken wire;hexagonal mesh;شبكة دجاج;wire net
+Structural Steel I-Beam,I-ബീം,STL-IB,kg,Steel,i beam;rsj;steel beam;عارضة فولاذية;h beam
+GI Wire 20 gauge,GI വൈർ,GIW-020,kg,Steel,gi wire;galvanized wire;garden wire;سلك مجلفن
+Copper Wire 6sqmm,കോപ്പർ വൈർ,CPW-006,mtr,Electrical,copper wire;6mm wire;electrical wire;سلك نحاسي
+UPVC Door Frame,UPVC ഡോർ,DOR-UPVC,set,Doors,upvc door;pvc door frame;باب بلاستيكي
+Wooden Door Teak,സ്വർണ്ണ ടീക്ക്,DOR-TK,set,Doors,teak door;wooden door;solid door;باب خشبي
+Aluminium Window,അലൂമിനിയം വിൻഡോ,WIN-AL,set,Windows,aluminium window;al window;نافذة ألومنيوم
+MS Door Grill,MS ഗ്രിൽ,GRL-MS,sqft,Steel,grill;ms grill;window grill;قضبان معدنية;iron grill
+Roofing Sheet GI,GI ഷീറ്റ്,SHT-GI,sqft,Roofing,gi sheet;galvanized sheet;roof sheet;صفيح مجلفن
+Bitumen Felt Roll,ബിറ്റുമെൻ,BTM-001,roll,Roofing,bitumen;bitumen felt;waterproof sheet;قار

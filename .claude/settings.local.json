@@ -1,0 +1,30 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npm install:*)",
+      "Bash(ffmpeg -version)",
+      "Bash(say --voice='?')",
+      "Bash(bash:*)",
+      "Bash(railway variables:*)",
+      "Bash(railway service:*)",
+      "Bash(railway --help)",
+      "Bash(railway link:*)",
+      "Bash(railway whoami:*)",
+      "Bash(railway list:*)",
+      "Bash(curl:*)",
+      "Bash(python3 -m json.tool)",
+      "Bash(say -v '?')",
+      "Bash(say -v Samantha \"അഞ്ച് കാർട്ടൺ വാട്ടർ കപ്പ് ഗന്ദൂര ചേർക്കൂ\" -o /tmp/wv-test/ml1.aiff)",
+      "Bash(say -v Samantha \"anchu carton water cup gandoura cherkkoo\" -o /tmp/wv-test/ml1.aiff)",
+      "Bash(say -v Samantha \"moonnu box kees thayyar mathakkoo\" -o /tmp/wv-test/ml2.aiff)",
+      "Bash(say -v Samantha \"pathhu waraga one garabiya add cheyyoo\" -o /tmp/wv-test/ml3.aiff)",
+      "Read(//private/tmp/wv-test/**)",
+      "Bash(node:*)",
+      "Bash(python3 -c ':*)",
+      "Bash(npm run:*)",
+      "Bash(npx vercel:*)",
+      "Bash(vercel --prod --yes)",
+      "Bash(vercel --prod --cwd /Users/aneesajabeen/warehousevoice/frontend)"
+    ]
+  }
+}
