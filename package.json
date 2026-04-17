@@ -1,0 +1,14 @@
+{
+  "name": "warehouseos",
+  "version": "1.0.0",
+  "description": "ERP + WhatsApp Warehouse Management System",
+  "private": true,
+  "scripts": {
+    "start": "cd backend && npm start",
+    "dev": "cd backend && npm run dev",
+    "build": "echo 'Backend auto-builds on Railway'"
+  },
+  "keywords": ["erp", "warehouse", "whatsapp", "inventory"],
+  "author": "WarehouseOS Team",
+  "license": "ISC"
+}
