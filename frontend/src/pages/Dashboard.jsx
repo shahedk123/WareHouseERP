@@ -4,7 +4,7 @@ import { useProducts } from '../hooks/useProducts';
 import { useInvoices } from '../hooks/useInvoices';
 import { useStock } from '../hooks/useStock';
 import { fmtCurrency, fmtDate } from '../lib/format';
-import { StatCard } from '../components/StatCard';
+import StatCard from '../components/StatCard';
 import api from '../lib/api';
 
 export default function DashboardPage() {
