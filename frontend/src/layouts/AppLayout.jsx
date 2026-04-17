@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import { Link, useLocation, Outlet } from 'react-router-dom';
 import { useAuth } from '../hooks/useAuth';
 
 const NAV_ITEMS = [
@@ -14,12 +14,12 @@ const NAV_ITEMS = [
   { path: '/queue', label: '📱 WhatsApp Queue', roles: ['admin', 'manager', 'accountant', 'picker'] },
 ];
 
-export default function AppLayout({ children }) {
+export default function AppLayout() {
   const location = useLocation();
   const { user, logout } = useAuth();
   const [sidebarOpen, setSidebarOpen] = useState(true);
 
-  if (!user) return children;
+  if (!user) return <Outlet />;
 
   const visibleItems = NAV_ITEMS.filter(item => item.roles.includes(user.role));
 
@@ -129,7 +129,7 @@ export default function AppLayout({ children }) {
 
       {/* Main Content */}
       <div style={{ flex: 1, overflow: 'auto' }}>
-        {children}
+        <Outlet />
       </div>
     </div>
   );
