@@ -14,6 +14,7 @@ import ProductListPage from './pages/products/ProductList.jsx';
 import PartyListPage from './pages/parties/PartyList.jsx';
 import InvoiceListPage from './pages/invoices/InvoiceList.jsx';
 import InvoiceCreatePage from './pages/invoices/InvoiceCreate.jsx';
+import InvoiceViewPage from './pages/invoices/InvoiceView.jsx';
 import StockInPage from './pages/stock/StockIn.jsx';
 import GSTSummaryPage from './pages/tax/GSTSummary.jsx';
 import StockSummaryPage from './pages/reports/StockSummary.jsx';
@@ -66,6 +67,7 @@ export default function AppRoot() {
           <Route path="parties" element={<PartyListPage />} />
           <Route path="invoices" element={<InvoiceListPage />} />
           <Route path="invoices/create" element={<InvoiceCreatePage />} />
+          <Route path="invoices/:id" element={<InvoiceViewPage />} />
           <Route path="stock/in" element={<StockInPage />} />
           <Route path="tax/gst" element={<GSTSummaryPage />} />
           <Route path="reports/stock" element={<StockSummaryPage />} />

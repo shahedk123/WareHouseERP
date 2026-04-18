@@ -1,8 +1,11 @@
 const express = require('express');
+const multer  = require('multer');
 const { createClient } = require('@supabase/supabase-js');
 const invoiceService = require('../../services/invoiceService');
 const pdfService = require('../../services/pdfService');
 const { authorize } = require('../../middleware/auth');
+
+const upload = multer({ storage: multer.memoryStorage(), limits: { fileSize: 8 * 1024 * 1024 } });
 
 const router = express.Router();
 
@@ -109,18 +112,86 @@ router.put('/:id/cancel', authorize('admin', 'accountant'), async (req, res) => 
   }
 });
 
-// GET /api/erp/invoices/:id/pdf — download invoice PDF
+// GET /api/erp/invoices/:id/pdf?template=modern&primaryColor=%231a56db
 router.get('/:id/pdf', async (req, res) => {
   try {
-    const doc = await pdfService.generateInvoicePDF(req.params.id);
+    const { template, primaryColor, currency, footerText } = req.query;
+    const doc = await pdfService.generateInvoicePDF(req.params.id, {
+      template,
+      primaryColor: primaryColor ? decodeURIComponent(primaryColor) : undefined,
+      currency,
+      footerText,
+    });
+
+    // Fetch invoice number for a nicer filename
+    const { data: inv } = await supabase
+      .from('invoices').select('invoice_number').eq('id', req.params.id).single();
+    const filename = `invoice-${inv?.invoice_number || req.params.id}.pdf`;
 
     res.setHeader('Content-Type', 'application/pdf');
-    res.setHeader('Content-Disposition', `attachment; filename="invoice-${req.params.id}.pdf"`);
-
+    res.setHeader('Content-Disposition', `attachment; filename="${filename}"`);
     doc.pipe(res);
     doc.end();
   } catch (err) {
     res.status(500).json({ error: err.message });
+  }
+});
+
+// POST /api/erp/invoices/template/analyze
+// Upload a reference bill image → Gemini Vision extracts suggested template settings
+router.post('/template/analyze', upload.single('file'), async (req, res) => {
+  if (!req.file) return res.status(400).json({ error: 'No file uploaded' });
+
+  try {
+    const { GoogleGenerativeAI } = require('@google/generative-ai');
+    const genai = new GoogleGenerativeAI(process.env.GEMINI_API_KEY);
+    const model = genai.getGenerativeModel({ model: 'gemini-1.5-flash' });
+
+    const imagePart = {
+      inlineData: {
+        data: req.file.buffer.toString('base64'),
+        mimeType: req.file.mimetype,
+      },
+    };
+
+    const prompt = `Analyze this invoice/bill image and extract the following details.
+Return ONLY valid JSON, no markdown, no explanation:
+{
+  "company_name": "company name visible in the header",
+  "primary_color": "dominant header/accent color as hex code (e.g. #1a56db). If black/white use #1F2937",
+  "layout_style": "one of: modern, classic, vat, thermal",
+  "has_arabic": true or false,
+  "has_logo": true or false,
+  "has_qr": true or false,
+  "footer_text": "footer text if visible, else empty string",
+  "column_count": number of columns in the items table,
+  "notes": "brief description of the layout style in 1 sentence"
+}`;
+
+    const result = await model.generateContent([prompt, imagePart]);
+    const text = result.response.text().trim();
+
+    // Strip markdown code blocks if present
+    const clean = text.replace(/^```json\s*/i, '').replace(/\s*```$/i, '').trim();
+    const analysis = JSON.parse(clean);
+
+    // Map layout_style to our template names
+    const templateMap = { modern: 'modern', classic: 'classic', vat: 'vat', thermal: 'thermal' };
+    analysis.suggested_template = templateMap[analysis.layout_style] || 'modern';
+
+    res.json({ ok: true, analysis });
+  } catch (err) {
+    console.error('Bill analysis error:', err.message);
+    // Return a safe fallback if AI fails
+    res.json({
+      ok: false,
+      error: err.message,
+      analysis: {
+        primary_color: '#1a56db',
+        suggested_template: 'modern',
+        notes: 'Could not analyze the image. Using default settings.',
+      },
+    });
   }
 });
 
